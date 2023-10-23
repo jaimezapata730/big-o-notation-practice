@@ -1,0 +1,109 @@
+Step One: Simplifying Expressions
+Simplify the following big O expressions as much as possible:
+
+1.  O(n + 10) = O(n)
+2.  O(100 * n) = O(n)
+3.  O(25) = O(1)
+4.  O(n^2 + n^3) = O(n^3)
+5.  O(n + n + n + n) =O(n)
+6.  O(1000 * log(n) + n) = O(n) "This is a big O(n) because the highest order term in the equation is n. As n increases, the other terms become insignificant compared to n and can be ignored. Therefore, the complexity of this equation is O(n)."
+7.  O(1000 * n * log(n) + n) = O(n log n)  "This is a big O n log n because the highest order term in the expression is n * log(n). The other terms (1000 * n and n) are lower order terms and can be ignored when determining the complexity of the algorithm. Therefore, the complexity of this algorithm is O(n log n)"
+8.  O(2^n + n^2) = O(2^n) "This is a big O 2^n because the highest order of growth in the expression is 2^n. This means that as n increases, the growth rate of the expression will be dominated by 2^n, making it the most significant term in the expression."
+9.  O(5 + 3 + 1) = O(1) "This is a big O of 1 because the complexity of the code does not depend on the size of the input. The number of operations (additions) remains constant regardless of the size of the input. Therefore, the time complexity of this code is O(1)."
+10. O(n + n^(1/2) + n^2 + n * log(n)^10) = O(n^2) "This is a big O n^2 because the highest order term in the expression is n^2. This means that as the input size increases, the time complexity of the algorithm will be dominated by the n^2 term, making it a big O n^"
+
+
+
+Step Two: Calculating Time Complexity
+Determine the time complexities for each of the following functions. If you’re not sure what these functions do, copy and paste them into the console and experiment with different inputs!
+
+Time Complexity: O(n)
+function logUpTo(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log(i);
+  }
+}
+
+
+Time Complexity: O(n)
+function logAtLeast10(n) {
+  for (let i = 1; i <= Math.max(n, 10); i++) {
+    console.log(i);
+  }
+}
+
+
+Time Complexity: O(1)
+function logAtMost10(n) {
+  for (let i = 1; i <= Math.min(n, 10); i++) {
+    console.log(i);
+  }
+}
+
+
+Time Complexity: O(n)
+function onlyElementsAtEvenIndex(array) {
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (i % 2 === 0) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+}
+
+
+Time Complexity: O(n^2)
+function subtotals(array) {
+  let subtotalArray = [];
+  for (let i = 0; i < array.length; i++) {
+    let subtotal = 0;
+    for (let j = 0; j <= i; j++) {
+      subtotal += array[j];
+    }
+    subtotalArray.push(subtotal);
+  }
+  return subtotalArray;
+}
+
+
+Time Complexity: O(n)
+function vowelCount(str) {
+  let vowelCount = {};
+  const vowels = "aeiouAEIOU";
+
+  for (let char of str) {
+    if(vowels.includes(char)) {
+      if(char in vowelCount) {
+        vowelCount[char] += 1;
+      } else {
+        vowelCount[char] = 1;
+      }
+    }
+  }
+
+  return vowelCount;
+}
+
+
+
+
+Part 3 - short answer
+Answer the following questions
+
+1.  True or false: n^2 + n is O(n^2). = True
+2.  True or false: n^2 * n is O(n^3). =  True
+3.  True or false: n^2 + n is O(n). =  false
+4.  What’s the time complexity of the .indexOf array method? = O(n) "The time complexity of the .indexOf array method is O(n). This is because it needs to iterate through the entire array in order to find the index of the specified element. If the element is not found, then the entire array must be searched before returning -1."
+5.  What’s the time complexity of the .includes array method? = O(n) "The time complexity of the .includes array method is O(n), where n is the length of the array. This is because the method needs to iterate through each element in the array to check if it includes the specified value."
+6.  What’s the time complexity of the .forEach array method? = O(n) "The time complexity of the .forEach array method is O(n), where n is the number of elements in the array. This is because the .forEach method iterates through each element in the array, so it takes linear time to complete"
+7.  What’s the time complexity of the .sort array method? = O(n log n) "The time complexity of the .sort array method is O(n log n). This is because the .sort method uses a sorting algorithm such as quicksort or mergesort, which have a time complexity of O(n log n)."
+8.  What’s the time complexity of the .unshift array method? = O(n) "The time complexity of the .unshift array method is O(n), where n is the number of elements in the array. This is because the .unshift method has to shift all existing elements in the array one position to the right in order to make room for the new element being added. Therefore, the more elements there are in the array, the longer it will take to add a new element"
+9.  What’s the time complexity of the .push array method? = O(1) "The time complexity of the .push array method is O(1). This is because it simply adds an element to the end of the array and does not require any additional"
+10. What’s the time complexity of the .splice array method? = O(n) "The time complexity of the .splice array method is O(n), where n is the number of elements in the array. This is because the .splice method needs to loop through the entire array to find the element or elements that need to be removed or replaced."
+11. What’s the time complexity of the .pop array method? = O(n) "The time complexity of the .pop array method is O(1). This is because it simply removes the last element from the array and returns it, which does not require any additional processing or looping"
+12. What’s the time complexity of the Object.keys() function? = O(n) "The time complexity of the Object.keys() function is O(n), where n is the number of keys in the object. This is because the function must iterate through each key in the object to return an array of all the keys"
+
+BONUS
+
+13. What’s the space complexity of the Object.keys() function? O(n) "The space complexity of the Object.keys() function is O(n), where n is the number of keys in the object. This is because the function needs to iterate through all the keys in the object in order to return them."
